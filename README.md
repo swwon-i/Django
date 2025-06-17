@@ -10,28 +10,28 @@
 
 ### python manage.py startapp {app 이름}
 
-#### __init__.py
+> __init__.py
 - 파이썬이 디렉토리를 인식할 수 있도록 하는 빈 파일
 
-#### admin.py
+> admin.py
 - 장고 관리자 페이지
 - 여러 모델을 추가하면 쉽게 쉽게 관리 가능 
 
-#### app.py  
+> app.py  
 - 앱의 자동 설정을 담당
     - 앱 이름 설정
     - 이벤트 설정
     - 초기화 로직
 
-#### models.py
+> models.py
 - 데이터베이스의 구조를 정의하는 역할
 - 데이터를 어떻게 저장할 것인가
 
-#### test.py
+> test.py
 - 테스트 코드 작성 파일
 
-#### urls.py
-> 고전적인 방법
+> urls.py
+- 고전적인 방법
 - config/urls.py
     - 이 파일 안에는 접속할 경로를 만들수 있음
     ```
@@ -42,7 +42,7 @@
     path('board/', views.index) # views.pt 파일의 index 함수 의미
     ]
     ```
-> include 방법
+- include 방법
 - board 관련 경로는 board에서 관리
     - board/urls.py
     ```
@@ -52,7 +52,7 @@
     ]
     ```
 
-#### views.py
+> views.py
 - 웹 요청을 받으면 처리 및 응답 하는 뷰(view) 함수 저장하는  파일
 
 ### superuser
