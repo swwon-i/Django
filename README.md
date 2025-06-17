@@ -9,6 +9,14 @@
     -개발 중인 Django 웹 서버를 실행합니다.
 ---
 
+### superuser
+- python.exe .\manage.py migrate
+    - 수수수슈퍼 계정 만들 준비
+    - 데이터베이스 업데이트
+- python manage.py createsuperuser
+    - 수퍼수퍼 계정 만들기
+---
+
 ### python manage.py startapp {app 이름}
 > __init__.py
 - 파이썬이 디렉토리를 인식할 수 있도록 하는 빈 파일
@@ -55,11 +63,3 @@
 > views.py
 - 웹 요청을 받으면 처리 및 응답 하는 뷰(view) 함수 저장하는  파일
 ---
-
-### superuser
-- python.exe .\manage.py migrate
-    - 수수수슈퍼 계정 만들 준비
-    - 데이터베이스 업데이트
-- python manage.py createsuperuser
-    - 수퍼수퍼 계정 만들기
-

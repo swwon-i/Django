@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Question, Answer
 
@@ -9,7 +9,11 @@ def index(request):
 def detail(request, question_id):
     # question = Question.objects.get(id=question_id)
     question = get_object_or_404(Question, id=question_id)
-    answers = Answer.objects.filter(question=question).order_by('-created_at')
-    # answers = get_object_or_404(Answer, id=question_id)
             
-    return render(request, 'board/detail.html', {'question' : question, 'answer':answers})
+    return render(request, 'board/detail.html', {'question' : question})
+
+def create_answer(request, question_id):
+    question = get_object_or_404(Question, id=question_id)
+    Answer(question=question, content=request.POST.get('content')).save()
+
+    return redirect('board:question_detail', question_id=question.id)

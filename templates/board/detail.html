@@ -1,2 +1,22 @@
-<h1>{{ question.subject }}</h>
-<p>{{ question.content }}</p>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ question.subject }}</h1>
+    <p>{{ question.content }}</p>
+    <h4>답변 개수 : {{ question.answer_set.count }}</h4>
+    <div>
+        <ul>
+            <!-- question과 연결된 모든 answer테이블 데이터들을 반복 -->
+            {% for answer in question.answer_set.all %}
+                <li>{{ answer.content }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <form method="post" action="{% url 'board:create_answer' question.id%}">
+        {% csrf_token %}
+        <textarea name="content" rows="20"></textarea>
+        <input type="submit" value="댓글 작성">
+    </form>
+</div>
+{% endblock %}
