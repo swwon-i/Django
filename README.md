@@ -23,7 +23,7 @@
     ```
 > include 방법
 - board 관련 경로는 board에서 관리
-    - 
+    - board/urls.py
     ```
     urlpatterns = [
         path('admin/', admin.site.urls),
