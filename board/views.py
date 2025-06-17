@@ -26,3 +26,12 @@ def create_question(request):
         question.save()
         return redirect('board:question_list')
     return render(request, 'board/create_question.html')
+
+def test(request):
+    # Question 객체 100개 생성
+    for i in range(1,101):
+        Question.objects.create(
+            subject = f'q{i}',
+            content = f'ans{i}'
+        )
+    return HttpResponse('완!')

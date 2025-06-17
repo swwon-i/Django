@@ -37,6 +37,9 @@
 
 > test.py
 - 테스트 코드 작성 파일
+    ```
+    python.exe .\manage.py test board
+    ```
 
 > urls.py
 - 고전적인 방법

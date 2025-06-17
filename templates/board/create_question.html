@@ -5,10 +5,10 @@
     <h1>질문 작성</h1>
     <form method="post" action="{% url 'board:create_question' %}">
         {% csrf_token %}
-        <input type="text" name="subject" required>
+        <input type="text" name="subject" placeholder="제목" required>
         <textarea name="content" row="5" required></textarea>
-        <input type="submit" value="질문작성">
+        <input type="submit" value="저장">
     </form>
 </div>
 
-{% endblock%}
+{% endblock %}

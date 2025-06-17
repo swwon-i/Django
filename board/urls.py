@@ -10,6 +10,6 @@ urlpatterns = [
     path('', views.index, name='question_list'),  
     path('<int:question_id>/', views.detail, name='question_detail'),
     path('ask/create/<int:question_id>', views.create_answer, name='create_answer' ),
-    path('question/create', views.create_question, name='create_question' )
-    
+    path('question/create', views.create_question, name='create_question' ),
+    path('test/', views.test, name='test')
 ]
