@@ -10,6 +10,7 @@
     -개발 중인 Django 웹 서버를 실행합니다.
 
 ### urls
+> 고전적인 방법
 - config/urls.py
     - 이 파일 안에는 접속할 경로를 만들수 있음
     ```
@@ -20,3 +21,18 @@
     path('board/', views.index) # views.pt 파일의 index 함수 의미
     ]
     ```
+> include 방법
+- board 관련 경로는 board에서 관리
+    - 
+    ```
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('board/', include('board.urls')) # board의 urls 파일에서 board관련 경로를 관리
+    ]
+    ```
+
+### superuser
+- python.exe .\manage.py migrate
+    - 수수수슈퍼 계정 만들 준비
+- python manage.py createsuperuser
+    - 수퍼수퍼 계정 만들기
