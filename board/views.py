@@ -1,10 +1,16 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Question, Answer
+from django.core.paginator import Paginator
 
 def index(request):
+    page = request.GET.get('page',1)                      # 페이지 기본 값은 1
     questions = Question.objects.order_by('-created_at')  # 질문을 생성 시간 기준으로 내림차순 정렬
-    return render(request, 'board/index.html', {'questions': questions})
+    
+    paginator = Paginator(questions,10)                   # 10개씩 한 페이지에
+    paginated_questions = paginator.get_page(page)
+
+    return render(request, 'board/index.html', {'questions': paginated_questions})
 
 def detail(request, question_id):
     # question = Question.objects.get(id=question_id)
