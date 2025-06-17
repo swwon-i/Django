@@ -17,3 +17,12 @@ def create_answer(request, question_id):
     Answer(question=question, content=request.POST.get('content')).save()
 
     return redirect('board:question_detail', question_id=question.id)
+
+def create_question(request):
+    if request.method == 'POST':
+        subject = request.POST.get('subject')
+        content = request.POST.get('content')
+        question = Question(subject=subject, content=content)
+        question.save()
+        return redirect('board:question_list')
+    return render(request, 'board/create_question.html')
